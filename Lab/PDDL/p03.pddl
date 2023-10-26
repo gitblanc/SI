@@ -1,0 +1,6 @@
+(define (problem p03)
+(:domain blocksword)
+(:objects a b c)
+(:init (encima_mesa a) (encima_bloque c a) (encima_mesa b) (sin_nada_encima c) (sin_nada_encima b))
+(:goal (and (encima_mesa a) (encima_mesa b) (encima_bloque c b) (sin_nada_encima a) (sin_nada_encima c)))
+)
