@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <DecisionCriteria>
+      <Criterion name="---" unit="---" />
+    </DecisionCriteria>
+    <Properties>
+      <Property name="hasElviraProperties" value="yes" />
+    </Properties>
+    <Variables>
+      <Variable name="Positive X-ray?" type="finiteStates" role="chance">
+        <Coordinates x="100" y="500" />
+        <States>
+          <State name="no" />
+          <State name="yes" />
+        </States>
+      </Variable>
+      <Variable name="Has bronchitis" type="finiteStates" role="chance">
+        <Coordinates x="100" y="100" />
+        <States>
+          <State name="no" />
+          <State name="yes" />
+        </States>
+      </Variable>
+      <Variable name="Dyspnoea?" type="finiteStates" role="chance">
+        <Coordinates x="333" y="500" />
+        <States>
+          <State name="no" />
+          <State name="yes" />
+        </States>
+      </Variable>
+      <Variable name="Visit to Asia?" type="finiteStates" role="chance">
+        <Coordinates x="566" y="500" />
+        <States>
+          <State name="no" />
+          <State name="yes" />
+        </States>
+      </Variable>
+      <Variable name="Smoker?" type="finiteStates" role="chance">
+        <Coordinates x="100" y="200" />
+        <States>
+          <State name="no" />
+          <State name="yes" />
+        </States>
+      </Variable>
+      <Variable name="Has lung cancer" type="finiteStates" role="chance">
+        <Coordinates x="100" y="300" />
+        <States>
+          <State name="no" />
+          <State name="yes" />
+        </States>
+      </Variable>
+      <Variable name="Has tuberculosis" type="finiteStates" role="chance">
+        <Coordinates x="450" y="300" />
+        <States>
+          <State name="no" />
+          <State name="yes" />
+        </States>
+      </Variable>
+      <Variable name="Tuberculosis or cancer" type="finiteStates" role="chance">
+        <Coordinates x="100" y="400" />
+        <States>
+          <State name="no" />
+          <State name="yes" />
+        </States>
+      </Variable>
+    </Variables>
+    <Links>
+      <Link directed="true">
+        <Variable name="Has bronchitis" />
+        <Variable name="Dyspnoea?" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Has bronchitis" />
+        <Variable name="Smoker?" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Smoker?" />
+        <Variable name="Has lung cancer" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Has lung cancer" />
+        <Variable name="Dyspnoea?" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Has lung cancer" />
+        <Variable name="Tuberculosis or cancer" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Has tuberculosis" />
+        <Variable name="Dyspnoea?" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Has tuberculosis" />
+        <Variable name="Tuberculosis or cancer" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Tuberculosis or cancer" />
+        <Variable name="Positive X-ray?" />
+      </Link>
+    </Links>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Positive X-ray?" />
+          <Variable name="Tuberculosis or cancer" />
+        </Variables>
+        <Values>0.945247270391779 0.05475272960822094 0.015909090909090907 0.9840909090909091</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Has bronchitis" />
+        </Variables>
+        <Values>0.5517948205179483 0.4482051794820518</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Dyspnoea?" />
+          <Variable name="Has bronchitis" />
+          <Variable name="Has lung cancer" />
+          <Variable name="Has tuberculosis" />
+        </Variables>
+        <Values>0.8954867087397208 0.10451329126027921 0.1919056878949927 0.8080943121050073 0.23717948717948717 0.7628205128205128 0.1130030959752322 0.8869969040247678 0.29464285714285715 0.7053571428571429 0.010869565217391304 0.9891304347826086 0.5 0.5 0.16666666666666666 0.8333333333333334</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Visit to Asia?" />
+        </Variables>
+        <Values>0.9893510648935107 0.01064893510648935</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Smoker?" />
+          <Variable name="Has bronchitis" />
+        </Variables>
+        <Values>0.6406051820982062 0.3593948179017938 0.3329243809948695 0.6670756190051305</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Has lung cancer" />
+          <Variable name="Smoker?" />
+        </Variables>
+        <Values>0.9903540175019888 0.009645982498011138 0.8971652593486128 0.10283474065138722</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Has tuberculosis" />
+        </Variables>
+        <Values>0.9895510448955105 0.010448955104489552</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Tuberculosis or cancer" />
+          <Variable name="Has lung cancer" />
+          <Variable name="Has tuberculosis" />
+        </Variables>
+        <Values>0.9999464782701777 5.352172982230786E-5 8.992805755395684E-4 0.9991007194244604 0.0049504950495049506 0.995049504950495 0.1 0.9</Values>
+      </Potential>
+    </Potentials>
+  </ProbNet>
+  <InferenceOptions>
+    <MulticriteriaOptions>
+      <SelectedAnalysisType>UNICRITERION</SelectedAnalysisType>
+      <Unicriterion>
+        <Scales>
+          <Scale Criterion="---" Value="1.0" />
+        </Scales>
+      </Unicriterion>
+      <CostEffectiveness>
+        <Scales>
+          <Scale Criterion="---" Value="1.0" />
+        </Scales>
+        <CE_Criteria>
+          <CE_Criterion Criterion="---" Value="Cost" />
+        </CE_Criteria>
+      </CostEffectiveness>
+    </MulticriteriaOptions>
+  </InferenceOptions>
+</ProbModelXML>
