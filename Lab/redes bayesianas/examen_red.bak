@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <Comment showWhenOpeningNetwork="false"><![CDATA[<<Pulse dos veces para incluir/modificar comentario>>]]></Comment>
+    <DecisionCriteria>
+      <Criterion name="---" unit="---" />
+    </DecisionCriteria>
+    <Properties />
+    <Variables>
+      <Variable name="A" type="finiteStates" role="chance">
+        <Coordinates x="274" y="106" />
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="B" type="finiteStates" role="chance">
+        <Coordinates x="658" y="389" />
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="C" type="finiteStates" role="chance">
+        <Coordinates x="528" y="242" />
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="E" type="finiteStates" role="chance">
+        <Coordinates x="942" y="380" />
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="F" type="finiteStates" role="chance">
+        <Coordinates x="280" y="439" />
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="D" type="finiteStates" role="chance">
+        <Coordinates x="739" y="98" />
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+    </Variables>
+    <Links>
+      <Link directed="true">
+        <Variable name="B" />
+        <Variable name="D" />
+      </Link>
+      <Link directed="true">
+        <Variable name="E" />
+        <Variable name="D" />
+      </Link>
+      <Link directed="true">
+        <Variable name="F" />
+        <Variable name="C" />
+      </Link>
+      <Link directed="true">
+        <Variable name="F" />
+        <Variable name="A" />
+      </Link>
+      <Link directed="true">
+        <Variable name="D" />
+        <Variable name="C" />
+      </Link>
+    </Links>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="A" />
+          <Variable name="F" />
+        </Variables>
+        <Values>0.1655 0.8345 0.6544 0.3456</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="B" />
+        </Variables>
+        <Values>0.5679 0.4321</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="C" />
+          <Variable name="D" />
+          <Variable name="F" />
+        </Variables>
+        <Values>0.7613 0.2387 0.70626 0.29374 0.87655 0.12345 0.6454 0.3546</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="E" />
+        </Variables>
+        <Values>0.8568 0.1432</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="F" />
+        </Variables>
+        <Values>0.016424 0.983576</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="D" />
+          <Variable name="B" />
+          <Variable name="E" />
+        </Variables>
+        <Values>0.5679 0.4321 0.6568 0.3432 0.23488 0.76512 0.4365 0.5635</Values>
+      </Potential>
+    </Potentials>
+  </ProbNet>
+  <InferenceOptions>
+    <MulticriteriaOptions>
+      <SelectedAnalysisType>UNICRITERION</SelectedAnalysisType>
+      <Unicriterion>
+        <Scales>
+          <Scale Criterion="---" Value="1.0" />
+        </Scales>
+      </Unicriterion>
+      <CostEffectiveness>
+        <Scales>
+          <Scale Criterion="---" Value="1.0" />
+        </Scales>
+        <CE_Criteria>
+          <CE_Criterion Criterion="---" Value="Cost" />
+        </CE_Criteria>
+      </CostEffectiveness>
+    </MulticriteriaOptions>
+  </InferenceOptions>
+  <Evidence>
+    <EvidenceCase />
+    <EvidenceCase>
+      <Finding variable="F" state="ausente" />
+    </EvidenceCase>
+  </Evidence>
+</ProbModelXML>
